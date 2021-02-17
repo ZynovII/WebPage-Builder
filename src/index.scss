@@ -1,13 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background: #ecece4;
+}
 .bg-indigo{
   background-color: #8540f5;
-}
-.app-header{
-  font-size: 1.5em;
-}
-.login-btn {
-  color: white;
-  border: 3px solid white;
-  border-radius: 5px;
+  background: linear-gradient(to bottom, #8540f5, #ae7cff);
 }

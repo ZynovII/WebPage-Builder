@@ -3,7 +3,7 @@ import React from 'react';
 export const WorkArea = () => {
     
     return (
-        <div>
+        <div className='field'>
             WorkArea
         </div>
     )

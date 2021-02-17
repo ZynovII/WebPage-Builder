@@ -8,7 +8,7 @@ export const MainPage = () => {
     
     function handleClick() {
         history.push("/Constructor");
-      }
+    }
 
     return (
         <div className='main-page container mt-4'>

@@ -1,0 +1,10 @@
+.app-header{
+    font-size: 1.5em;
+    &__title {
+        transition: .5s;
+        &:hover{
+            cursor: pointer;
+            color: rgb(213, 213, 252);
+        }
+    }
+}
