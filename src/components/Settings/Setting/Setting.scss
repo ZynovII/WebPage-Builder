@@ -14,16 +14,14 @@
         font-size: 1.3rem;
         font-weight: 600;
     }
-    &:hover {
-        background-color: rgb(253, 253, 255);
-    }
     &__toggle {
         font-size: 1rem;
         font-weight: 900;
         cursor: pointer;
-        border: 1px solid gray;
+        border: none;
         border-radius: 0.25rem;
         padding: 0 7.5px;
+        transition: .3s;
         &:hover {
             background-color: rgb(218, 218, 218);
         }
@@ -31,6 +29,9 @@
     &__options {
         padding-bottom: 5px;
         & input {
+            margin-right: 5px;
+            min-width: 65px;
+            width: calc(100% - 43px);
             vertical-align: middle;
         }
     }

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ElementContext } from '../../../context/new-elements/elementContext';
 
 import './Setting.scss';
 
 export const Setting = ( props ) => {
     
-    let [isOpen, setIsOpen] = useState(false);
+    const {changeElement} = useContext(ElementContext);
+
+    const [isOpen, setIsOpen] = useState(false);
     
-    let toggleOpen = () => setIsOpen(!isOpen);
+    const toggleOpen = () => setIsOpen(!isOpen);
     return (
         <div className='setting'>
             <div className='setting__head'>
@@ -20,7 +23,7 @@ export const Setting = ( props ) => {
                 <div className='setting__options'>
                     Enter color
                     <div>
-                        <input className='mr-2' size='15' defaultValue='#FFFFFF' />
+                        <input size='15' defaultValue='#FFFFFF' />
                         <button className='btn btn-sm btn-outline-success'>
                             &#10004;
                         </button>

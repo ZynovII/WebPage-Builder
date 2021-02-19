@@ -1,0 +1,13 @@
+.app-header{
+    font-size: 1.5em;
+    background-color: #8540f5;
+    background: linear-gradient(to bottom, #8540f5, #ae7cff);
+    &__title {
+        vertical-align: baseline;
+        transition: .5s;
+        &:hover{
+            cursor: pointer;
+            color: rgb(233, 233, 255);
+        }
+    }
+}

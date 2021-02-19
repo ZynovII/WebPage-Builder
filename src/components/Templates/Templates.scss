@@ -1,0 +1,10 @@
+.field-templates {
+    margin: 3px 3px 0px 3px;
+    flex: 3;
+    border: 1px solid #8540f5;
+    background-color: white;
+    border-radius: 5px;
+    max-height: calc(100vh - 115px);
+    overflow-y: auto;
+    box-shadow: inset 0px 0px 3px rgba($color: #000000, $alpha: .4);
+}

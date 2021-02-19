@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { LoginBtn } from './LoginBtn';
+import { LoginBtn } from '../LoginBtn/LoginBtn';
 
 import './AppHeader.scss'
 

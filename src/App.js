@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { AppHeader } from './components/AppHeader';
+import { AppHeader } from './components/AppHeader/AppHeader';
 import { AppPage } from "./pages/AppPage";
 import { MainPage } from "./pages/MainPage";
 import { ViewPage } from "./pages/ViewPage";
