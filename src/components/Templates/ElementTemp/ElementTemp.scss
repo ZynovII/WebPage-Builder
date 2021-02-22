@@ -1,0 +1,22 @@
+.template-item__child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px;
+    padding-left: 10px;
+
+    background-image: linear-gradient(0.25turn, rgb(247, 247, 247), #ddd, rgb(247, 247, 247));
+    background-position: 40% 100%;
+    background-repeat: no-repeat;
+    background-size: 33% 1px;
+    transition: background-size .3s;
+    &:hover {
+        background-size: 90% 1px;
+    }
+    & span {
+        color: rgb(97, 96, 96);
+        &:focus {
+            color: black;
+        }
+    }
+}

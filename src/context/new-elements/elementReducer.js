@@ -5,7 +5,7 @@ export const elementReducer = ( state, action ) => {
         case ADD_ELEMENT: 
             return  { ...state, elements: [...state.elements, action.payload] };
         case CHANGE_ELEMENT:
-            return { ...state, elements: state.elements.map( el => el.id === action.id ? action.payload : el) };
+            return { ...state, elements: state.elements.map( el => el.id === action.payload.id ? action.payload : el) };
         case DELITE_ELEMENT:
             return { ...state, elements: state.elements.filter( el => el.id !== action.id) }
         default: 

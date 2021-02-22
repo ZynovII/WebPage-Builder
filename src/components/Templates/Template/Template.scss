@@ -20,13 +20,17 @@
             font-weight: 400;
         }
     }
-    &__child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &__description {
+        color: #889199;
+        font-size: .8rem;
+        line-height: 10px;
+    }
+    &__children {
+        margin-top: 5px;
+        padding: 3px;
         border-radius: 3px;
-        box-shadow: 0px 1px 3px rgba($color: #000000, $alpha: .4);
-        padding-left: 10px;
+        background-color: rgb(250, 250, 255);
+        box-shadow: inset 0px 0px 3px rgba($color: #000000, $alpha: .3);
     }
     &:hover {
         background-color: rgb(253, 253, 255);
