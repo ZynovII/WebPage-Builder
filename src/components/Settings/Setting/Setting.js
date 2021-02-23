@@ -12,11 +12,17 @@ export const Setting = ( props ) => {
     const toggleOpen = () => setIsOpen(!isOpen);
     return (
         <div className='setting'>
-            <div className='setting__head'>
+            <div 
+                className='setting__head'
+                onClick={toggleOpen}
+            >
                 <div className='setting__title'>{props.name}</div>
-                <button className='setting__toggle' onClick={toggleOpen}>
-                    &hellip;
-                </button>
+                {
+                    !isOpen &&
+                    <span className='setting__toggle'>
+                        &hellip;
+                    </span>
+                }
             </div>
             {
                 isOpen &&
