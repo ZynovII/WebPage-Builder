@@ -5,20 +5,20 @@ import { Template } from './Template/Template';
 import './Templates.scss';
 
 const templatesArr = [
-    { id: 0, name: 'header', type: 'header', style: STYLE_HEADER},
-    { id: 1, name: 'text', type: 'p', style: STYLE_TEXT},
-    { id: 2, name: 'picture', type: 'img', style: STYLE_PICTURE},
-    { id: 3, name: 'footer', type: 'footer', style: STYLE_FOOTER},
-    { id: 4, name: 'block', type: 'div', style: STYLE_DIV},
-    { id: 5, name: 'picture + text', type: 'section', style: STYLE_COMBO},
-    { id: 6, name: 'link', type: 'a'}
+    { id: 1, name: 'header', type: 'header', dom: 'header', style: STYLE_HEADER},
+    { id: 2, name: 'text', type: 'text', dom: 'p', style: STYLE_TEXT},
+    { id: 3, name: 'picture', type: 'img', dom: 'img', style: STYLE_PICTURE},
+    { id: 4, name: 'footer', type: 'footer', dom: 'footer', style: STYLE_FOOTER},
+    { id: 5, name: 'block', type: 'block', dom: 'div', style: STYLE_DIV},
+    { id: 6, name: 'picture + text', type: 'section', dom: 'section', style: STYLE_COMBO},
+    { id: 7, name: 'link', type: 'link', dom: 'a', style: {}}
 ];
 
 export const Templates = () => {
     
     let templates = templatesArr.map( v => (
         <Template key={v.id} style={v.style}
-            name={v.name} type={v.type} 
+            name={v.name} type={v.type} dom={v.dom}
         />
     ) 
     );

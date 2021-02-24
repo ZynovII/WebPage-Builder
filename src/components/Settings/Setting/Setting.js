@@ -1,22 +1,41 @@
-import React, { useContext, useState } from 'react';
-import { ElementContext } from '../../../context/new-elements/elementContext';
+import React, { useState } from 'react';
+import { ColorSetting } from './ColorSetting/ColorSetting';
+import { FontSetting } from './FontSetting/FontSetting';
 
 import './Setting.scss';
 
-export const Setting = ( props ) => {
-    
-    const {changeElement} = useContext(ElementContext);
+export const Setting = ( {elem} ) => {
 
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleOpen = () => setIsOpen(!isOpen);
+
+    let settingsBlock;
+    
+    switch (elem.type){
+        case ('div' || 'header' || 'footer') : 
+                settingsBlock = (
+                    <>
+                        <FontSetting elemId={elem.id} />
+                    </>
+                );
+                break
+        default:
+            settingsBlock = (
+                <>
+                    <ColorSetting elemId={elem.id} />
+                    <FontSetting elemId={elem.id} />
+                </>
+            );        
+    }
+
     return (
         <div className='setting'>
             <div 
                 className='setting__head'
                 onClick={toggleOpen}
             >
-                <div className='setting__title'>{props.name}</div>
+                <div className='setting__title'>{elem.name}</div>
                 {
                     !isOpen &&
                     <span className='setting__toggle'>
@@ -27,13 +46,7 @@ export const Setting = ( props ) => {
             {
                 isOpen &&
                 <div className='setting__options'>
-                    Enter color
-                    <div>
-                        <input size='15' defaultValue='#FFFFFF' />
-                        <button className='btn btn-sm btn-outline-success'>
-                            &#10004;
-                        </button>
-                    </div>
+                    {settingsBlock}
                 </div>
             }
         </div>

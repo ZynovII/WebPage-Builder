@@ -42,7 +42,7 @@ export const Template = ( props ) => {
                             countOfNewElements
                         }
                     </div>
-                    <span className='template-item__description'>&lt;{props.type}&gt;</span>
+                    <span className='template-item__description'>&lt;{props.dom}&gt;</span>
                 </div>
                 <button 
                     className='btn btn-outline-success'

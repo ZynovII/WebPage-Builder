@@ -6,21 +6,20 @@ import './Settings.scss';
 
 export const Settings = () => {
     
-    const {elements} = useContext(ElementContext);
+    const {container, elements} = useContext(ElementContext);
 
     let elementsSettings = elements.map( el => {
         return(
             <Setting 
                 key={el.id}
-                name={el.name}
-                type={el.type}
+                elem={el}
             />
         )
     })
 
     return (
         <div className='field-settings'>
-            <Setting name='body' type='body' />
+            <Setting elem={container} />
             {elementsSettings}
         </div>
     )

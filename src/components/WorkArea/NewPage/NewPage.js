@@ -3,19 +3,27 @@ import { ElementContext } from '../../../context/new-elements/elementContext';
 
 export const NewPage = () => {
 
-    const {elements} = useContext(ElementContext);
+    const {container, elements} = useContext(ElementContext);
     
     const elementsDOM = elements.map( el => {
         return (
-            <el.type 
+            <el.dom 
                 key={el.id} style={ el.style }
             >
-                {el.type !== 'img' ? el.name : null}
-            </el.type>
+                {
+                    el.type !== 'img'
+                    ? el.name 
+                    : null
+                }
+            </el.dom>
         )
     })
 
     return (
-        elementsDOM
+        <container.dom 
+            style={container.style}
+        >
+            {elementsDOM}
+        </container.dom>
     )
 }
