@@ -1,4 +1,4 @@
-import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, DELITE_ELEMENT } from "../types";
+import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, DELITE_ELEMENT, SELECT_ELEMENT } from "../types";
 
 export const elementReducer = ( state, action ) => {
     switch ( action.type ) {
@@ -9,7 +9,9 @@ export const elementReducer = ( state, action ) => {
         case CHANGE_CONTAINER:
             return { ...state, container: action.payload};
         case DELITE_ELEMENT:
-            return { ...state, elements: state.elements.filter( el => el.id !== action.id) }
+            return { ...state, elements: state.elements.filter( el => el.id !== action.id) };
+        case SELECT_ELEMENT:
+            return { ...state, selectedElementID: action.id };
         default: 
             return state;
     }

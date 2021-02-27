@@ -1,11 +1,13 @@
 import React, { useReducer } from 'react';
-import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, DELITE_ELEMENT } from '../types';
+import { STYLE_CONTANER } from '../../components/Templates/StandartStyle';
+import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, DELITE_ELEMENT, SELECT_ELEMENT } from '../types';
 import { ElementContext } from './elementContext';
 import { elementReducer } from './elementReducer';
 
 const initialState = {
-    container: { id: 0, name: 'Body', type: 'container', dom: 'div', style: {backgroundColor: '#ffffff'}}, 
-    elements: []
+    container: { id: 0, name: 'Body', type: 'container', dom: 'div', style: STYLE_CONTANER}, 
+    elements: [],
+    selectedElementID: null
 };
 
 export const ElementState = ( {children} ) => {
@@ -33,6 +35,13 @@ export const ElementState = ( {children} ) => {
         })
     }
 
+    const selectElement = ( elId ) => {
+        dispatch({
+            type: SELECT_ELEMENT,
+            id: elId
+        })
+    } 
+
     const changeContainer = ( elem ) => {
         dispatch({
             type: CHANGE_CONTAINER,
@@ -42,8 +51,10 @@ export const ElementState = ( {children} ) => {
     
     return(
         <ElementContext.Provider value={{
-            addElement, changeElement, deliteElement, changeContainer,
-            elements: state.elements, container: state.container
+            addElement, changeElement, deliteElement, 
+            changeContainer, selectElement,
+            elements: state.elements, container: state.container,
+            selectedElementID: state.selectedElementID, 
         }}>
             {children}
         </ElementContext.Provider>

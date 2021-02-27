@@ -36,12 +36,9 @@ export const Setting = ( {elem} ) => {
                 onClick={toggleOpen}
             >
                 <div className='setting__title'>{elem.name}</div>
-                {
-                    !isOpen &&
-                    <span className='setting__toggle'>
-                        &hellip;
-                    </span>
-                }
+                <span className={ !isOpen ? 'setting__toggle' : 'setting__toggle_opened' }>
+                    &or;
+                </span>
             </div>
             {
                 isOpen &&

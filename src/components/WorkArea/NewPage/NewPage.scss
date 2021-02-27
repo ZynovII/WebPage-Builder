@@ -1,0 +1,21 @@
+.new-element {
+    position: relative;
+    & span {
+        background: rgba(223, 223, 223, .4);
+        border-radius: 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    &_selected {
+        outline: 1px solid rgba(111, 95, 255, 0.6);
+        position: relative;
+        & span {
+            background: rgba(111, 95, 255, 0.6);
+            border-radius: 5px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

@@ -11,7 +11,7 @@ export const Template = ( props ) => {
     const {elements, addElement} = useContext(ElementContext);
 
     const elementsThisTypeArr = elements.filter( el => el.type === props.type );
-    
+
     const handlerAdd = (event) => {
         event.stopPropagation();
         let newId = JSON.stringify(new Date());

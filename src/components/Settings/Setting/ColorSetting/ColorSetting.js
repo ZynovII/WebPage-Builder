@@ -26,7 +26,7 @@ export const ColorSetting = ( {elemId} ) => {
                 </label>
                 <input 
                     type='color'
-                    className='form-control form-control-sm'
+                    className='form-control form-control-sm form-control-color'
                     title='Choose color'
                     id='input-color'
                     value={currentElement.style.backgroundColor || '#ffffff'}
@@ -42,7 +42,7 @@ export const ColorSetting = ( {elemId} ) => {
                 </label>
                 <input 
                     type='color'
-                    className='form-control form-control-sm'
+                    className='form-control form-control-sm form-control-color'
                     title='Choose color'
                     id='input-color'
                 />
