@@ -24,9 +24,9 @@ export const STYLE_HEADER = {
 export const STYLE_FOOTER = {
     minHeight: '100px', backgroundColor: 'lightblue',
     fontSize: '2em', display: 'flex', 
-    alignItems: 'center', justifyContent: 'center'
+    alignItems: 'center', justifyContent: 'space-around'
 };
 export const STYLE_COMBO = {
-    minHeight: '100px', backgroundColor: '#9cff6c',
+    minHeight: '100px', backgroundColor: '#f5f5f5',
     fontSize: '1.5em',
 };

@@ -13,9 +13,10 @@ export const Template = ( props ) => {
     const elementsThisTypeArr = elements.filter( el => el.type === props.type );
 
     const handlerAdd = (event) => {
+        let elementsCounter = elementsThisTypeArr.length;
         event.stopPropagation();
         let newId = JSON.stringify(new Date());
-        addElement( {...props, name: `New ${props.name}`, id: newId} );
+        addElement( {...props, name: `New ${props.name}${elementsCounter+1}`, id: newId} );
     };
     
     const toggleOpen = () => {
@@ -42,7 +43,7 @@ export const Template = ( props ) => {
                             countOfNewElements
                         }
                     </div>
-                    <span className='template-item__description'>&lt;{props.dom}&gt;</span>
+                    <span className='template-item__description'>&lt;{props.dom.container}&gt;</span>
                 </div>
                 <button 
                     className='btn btn-outline-success'

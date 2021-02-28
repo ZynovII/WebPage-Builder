@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { STYLE_CONTANER } from '../../components/Templates/StandartStyle';
-import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, DELITE_ELEMENT, SELECT_ELEMENT } from '../types';
+import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, CHANGE_ORDER, DELITE_ALL, DELITE_ELEMENT, SELECT_ELEMENT } from '../types';
 import { ElementContext } from './elementContext';
 import { elementReducer } from './elementReducer';
 
@@ -33,14 +33,14 @@ export const ElementState = ( {children} ) => {
             type: DELITE_ELEMENT,
             id: elId
         })
-    }
+    };
 
     const selectElement = ( elId ) => {
         dispatch({
             type: SELECT_ELEMENT,
             id: elId
         })
-    } 
+    };
 
     const changeContainer = ( elem ) => {
         dispatch({
@@ -48,11 +48,24 @@ export const ElementState = ( {children} ) => {
             payload: elem
         })
     };
+
+    const deliteAllElements = () => {
+        dispatch({
+            type: DELITE_ALL
+        })
+    };
+    
+    const changeOrder = (elements) => {
+        dispatch({
+            type: CHANGE_ORDER,
+            payload: elements
+        })
+    };
     
     return(
         <ElementContext.Provider value={{
-            addElement, changeElement, deliteElement, 
-            changeContainer, selectElement,
+            addElement, changeElement, deliteElement, changeOrder,
+            changeContainer, selectElement, deliteAllElements,
             elements: state.elements, container: state.container,
             selectedElementID: state.selectedElementID, 
         }}>

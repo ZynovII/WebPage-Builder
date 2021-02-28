@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ElementContext } from '../../context/new-elements/elementContext';
 
 import './AppFooter.scss';
 
 export const AppFooter = ( {isOpen, cbIsOpen} ) => {
     
+    const { deliteAllElements } = useContext(ElementContext);
+
+    const deliteHandler = () => {
+        deliteAllElements();
+    };
     const settingHendler = () => cbIsOpen(!isOpen);
 
     return (
@@ -14,11 +20,16 @@ export const AppFooter = ( {isOpen, cbIsOpen} ) => {
             >
                 Settings
             </button>
-            <button className='btn btn-primary btn-lg'>Viewing</button>
-            <button className='btn btn-danger btn-lg'>Clear</button>
+            <button className='btn btn-primary btn-lg' disabled>Viewing</button>
+            <button 
+                className='btn btn-danger btn-lg'
+                onClick={deliteHandler}
+            >
+                Clear
+            </button>
             <div className='app-footer__load-btns'>
-                <button className='btn btn-info btn-lg'>Load</button>
-                <button className='btn btn-success btn-lg'>Download</button>
+                <button className='btn btn-info btn-lg' disabled>Load</button>
+                <button className='btn btn-success btn-lg' disabled>Download</button>
             </div>
         </div>
     )
