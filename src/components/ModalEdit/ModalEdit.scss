@@ -1,0 +1,13 @@
+.modal-element_edit {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+    height: calc(100vh - 117px);
+    box-shadow: inset 0px 0px 3px rgba($color: #000000, $alpha: .4);
+    & > div + div {
+        margin: 10px;
+    }
+}

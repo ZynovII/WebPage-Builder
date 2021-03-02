@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react';
-import { STYLE_CONTANER } from '../../components/Templates/StandartStyle';
+import { standartContainer } from '../../components/Templates/StandartElement';
 import { ADD_ELEMENT, CHANGE_CONTAINER, CHANGE_ELEMENT, CHANGE_ORDER, DELITE_ALL, DELITE_ELEMENT, SELECT_ELEMENT } from '../types';
 import { ElementContext } from './elementContext';
 import { elementReducer } from './elementReducer';
 
 const initialState = {
-    container: { id: 0, name: 'Body', type: 'container', dom: 'div', style: STYLE_CONTANER}, 
+    container: standartContainer, 
     elements: [],
     selectedElementID: null
 };

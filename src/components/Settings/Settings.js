@@ -19,6 +19,9 @@ export const Settings = () => {
 
     return (
         <div className='field-settings'>
+            <div className='field-templates__tabs'>
+                <div>settings</div>
+            </div>
             <Setting elem={container} />
             {elementsSettings}
         </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-export const Header = ( {style} ) => {
+export const Header = ( {element, editable} ) => {
 
     return (
-        <header style={style}>
-            <h1>My new web page</h1>
+        <header style={element.style.container}>
+            <h1 className={editable ? 'editable' : undefined}>My new web page</h1>
         </header>
     )
 }

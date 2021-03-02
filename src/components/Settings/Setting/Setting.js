@@ -11,12 +11,13 @@ export const Setting = ( {elem} ) => {
     const toggleOpen = () => setIsOpen(!isOpen);
 
     let settingsBlock;
+
     
     switch (elem.type){
-        case ('div' || 'header' || 'footer') : 
+        case ('container') : 
                 settingsBlock = (
                     <>
-                        <FontSetting elemId={elem.id} />
+                        <ColorSetting elemId={elem.id} />
                     </>
                 );
                 break

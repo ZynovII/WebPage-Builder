@@ -1,12 +1,19 @@
 import React from 'react';
 
-
-export const PicAndText = ( {style} ) => {
+export const PicAndText = ( {element, editable} ) => {
 
     return(
-        <div style={{...style, wordBreak: 'break-all', padding: '10px'}}>
-            <img src='#' alt='pic' height='100' width='100' style={{float: 'left', marginRight: '5px', border: '1px solid'}} />
-            <p>hahahahahahahahahahahhahahahahahahahhahahahahahahhahahahahahahahahhaahhahaahahahahahahahahahahhahaahahahahhahahahahahahahahahhahahahaahhahahahahahahaahahahahahahahahahhahahahahahahhahahahahahahahahahahhahahahahahahhahahahahhahahahahahahahahhahahahahahahahahahahhahahahahhahahahahahhahahahahhahahahahahaahahahahhahahahahahhahahahahhahaahaahahahahhahhahahaahahahahahahahhahahahahhahahahahahahahahahahaha</p>
+        <div style={element.style.container}>
+            <img 
+                src={element.content.src} 
+                alt='pic' 
+                width='300' 
+                style={{float: 'left', marginRight: '5px'}} 
+                className={editable ? 'editable' : undefined}
+            />
+            <p className={editable ? 'editable' : undefined}>
+                {element.content.text}
+            </p>
         </div>
     )
 }

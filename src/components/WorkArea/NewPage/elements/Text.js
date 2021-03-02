@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-export const Text = ( {style} ) => {
+export const Text = ( {element, editable} ) => {
 
     return (
-        <div style={style}>
-            <p>
-                Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome text
+        <div style={element.style.container}>
+            <p className={editable ? 'editable' : undefined}>
+                {element.content.text}
             </p>
         </div>
     )

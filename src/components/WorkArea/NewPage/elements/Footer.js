@@ -1,14 +1,11 @@
 import React from 'react';
 
 
-export const Footer = ( {style} ) => {
+export const Footer = ( {element, editable} ) => {
 
     return (
-        <footer style={style}>
-            <a href='#'>My links</a>
-            <a href='#'>My links</a>
-            <a href='#'>My links</a>
-            <a href='#'>My links</a>
+        <footer style={element.style.container}>
+            <h1 className={editable ? 'editable' : undefined}>Thanks for your page</h1>
         </footer>
     )
 }

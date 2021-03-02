@@ -27,10 +27,6 @@ export const AppFooter = ( {isOpen, cbIsOpen} ) => {
             >
                 Clear
             </button>
-            <div className='app-footer__load-btns'>
-                <button className='btn btn-info btn-lg' disabled>Load</button>
-                <button className='btn btn-success btn-lg' disabled>Download</button>
-            </div>
         </div>
     )
 }

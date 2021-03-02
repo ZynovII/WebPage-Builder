@@ -10,21 +10,19 @@ export const Templates = () => {
     const templatesArr = standartElements;
 
     let templates = templatesArr.map( v => (
-        <Template key={v.id} style={v.style}
-            name={v.name} type={v.type} dom={v.dom}
+        <Template key={v.id} template={v}
         />
     ) 
     );
 
     return (
         <div className='field-templates'>
-            <div className='field-templates__tabs'>
-                <div>Bloks</div>
-                <div>Texts</div>
-                <div>Pictures</div>
-                <div>All</div>
+            <div>
+                <div className='field-templates__tabs'>
+                    <div>templates</div>
+                </div>
+                {templates}
             </div>
-            {templates}
         </div>
     )
 }

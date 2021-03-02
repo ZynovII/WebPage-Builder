@@ -12,17 +12,17 @@ export const NewPage = () => {
         <NewElement el={el} index={i} key={el.id} />
     ));
     
-    const clickHandler = ( eo, id ) => {
+    const selectHandler = ( eo, id ) => {
         eo.stopPropagation();
         selectElement(id);
     };
 
     return (
-        <container.dom 
-            style={container.style}
-            onClick={ (eo) => clickHandler(eo, null)}
+        <container.dom.container 
+            style={container.style.container}
+            onClick={ (eo) => selectHandler(eo, null)}
         >
             {elementsDOM}
-        </container.dom>
+        </container.dom.container>
     );
 };

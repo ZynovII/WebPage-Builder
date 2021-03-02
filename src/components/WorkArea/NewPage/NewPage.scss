@@ -8,9 +8,10 @@
         top: 0;
     }
     &_selected {
-        outline: 1px solid rgba(111, 95, 255, 0.6);
+        outline: 2px solid rgba(111, 95, 255, 0.6);
+        z-index: 2;
         position: relative;
-        & span {
+        & > span {
             background: rgba(111, 95, 255, 0.6);
             border-radius: 5px;
             position: absolute;
@@ -25,4 +26,7 @@
             background-color: rgba(0, 0, 0, 0);
         }
     }
+}
+.editable {
+    border: 2px dashed gray;
 }
