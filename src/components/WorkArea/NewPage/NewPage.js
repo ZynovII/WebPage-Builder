@@ -12,7 +12,7 @@ export const NewPage = () => {
         <NewElement el={el} index={i} key={el.id} />
     ));
     
-    const selectHandler = ( eo, id ) => {
+    const unSelectHandler = ( eo, id ) => {
         eo.stopPropagation();
         selectElement(id);
     };
@@ -20,7 +20,7 @@ export const NewPage = () => {
     return (
         <container.dom.container 
             style={container.style.container}
-            onClick={ (eo) => selectHandler(eo, null)}
+            onClick={ (eo) => unSelectHandler(eo, null)}
         >
             {elementsDOM}
         </container.dom.container>

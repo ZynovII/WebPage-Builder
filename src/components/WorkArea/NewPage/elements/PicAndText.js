@@ -14,6 +14,7 @@ export const PicAndText = ( {element, editable} ) => {
             <p className={editable ? 'editable' : undefined}>
                 {element.content.text}
             </p>
+            <div style={{clear: 'both'}}></div>
         </div>
     )
 }

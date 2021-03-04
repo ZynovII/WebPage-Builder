@@ -9,7 +9,7 @@ export const elementReducer = ( state, action ) => {
         case DELITE_ELEMENT:
             return { ...state, elements: state.elements.filter( el => el.id !== action.id) };
         case DELITE_ALL:
-            return { ...state, elements: []};
+            return { ...state, elements: [], container: action.payload};
         case SELECT_ELEMENT:
             return { ...state, selectedElementID: action.id };
         case CHANGE_CONTAINER:

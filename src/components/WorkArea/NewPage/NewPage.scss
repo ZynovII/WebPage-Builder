@@ -1,6 +1,6 @@
 .new-element {
     position: relative;
-    & span {
+    & > span {
         background: rgba(223, 223, 223, .4);
         border-radius: 5px;
         position: absolute;

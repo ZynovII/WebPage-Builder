@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { ElementContext } from "../../../../context/new-elements/elementContext";
 
-export const ColorSetting = ({ elemId }) => {
+export const ColorSetting = ({ elem }) => {
   const { elements, container, changeElement, changeContainer } = useContext(ElementContext);
 
-  const currentElement = elements.find((v) => v.id === elemId) || container;
+  const currentElement = elements.find((v) => v.id === elem.id) || container;
 
   const onChangeBackgroundHandler = (eo) => {
     let newStyledElem = {
@@ -48,7 +48,7 @@ export const ColorSetting = ({ elemId }) => {
           className="form-control form-control-sm form-control-color"
           title="Choose color"
           id="input-color"
-          value={currentElement.style.container.backgroundColor || "#ffffff"}
+          value={currentElement.style.container.backgroundColor}
           onChange={onChangeBackgroundHandler}
         />
       </div>

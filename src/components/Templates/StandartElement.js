@@ -29,9 +29,11 @@ export const standartElements = [
       container: "header",
       children: "h1",
     },
+    content: {
+      text: 'My new page'
+    },
     style: {
       container: STYLE_HEADER,
-      children: {},
     },
   },
   {
@@ -48,7 +50,6 @@ export const standartElements = [
     },
     style: {
       container: STYLE_TEXT,
-      children: {},
     },
   },
   {
@@ -72,9 +73,11 @@ export const standartElements = [
     name: "footer",
     type: "footer",
     dom: { container: "footer" },
+    content: {
+      text: 'Thanks for waching'
+    },
     style: {
       container: STYLE_FOOTER,
-      children: {},
     },
   },
   {
@@ -84,7 +87,6 @@ export const standartElements = [
     dom: { container: "div" },
     style: {
       container: STYLE_DIV,
-      children: {},
     },
   },
   {

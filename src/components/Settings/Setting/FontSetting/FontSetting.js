@@ -2,12 +2,8 @@ import React, { useContext } from "react";
 import { ElementContext } from "../../../../context/new-elements/elementContext";
 
 
-export const FontSetting = ( {elemId} ) => {
-  const { elements, container, changeElement, changeContainer } = useContext(
-    ElementContext
-  );
-
-  const currentElement = elements.find((v) => v.id === elemId) || container;
+export const FontSetting = ( {elem} ) => {
+  const { changeElement } = useContext(ElementContext);
 
   const fontSizesArr = [4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 32, 40];
   const fontWeightArr = [400, 500, 600, 800, 900];
@@ -25,33 +21,42 @@ export const FontSetting = ( {elemId} ) => {
 
   const onChangeFontSizeHandler = (eo) => {
     let newStyledElem = {
-      ...currentElement,
+      ...elem,
       style: {
-        ...currentElement.style,
+        ...elem.style,
         container: {
-          ...currentElement.style.container,
+          ...elem.style.container,
           fontSize: `${eo.target.value}px`,
         },
       },
     };
-    currentElement !== container
-      ? changeElement(newStyledElem)
-      : changeContainer(newStyledElem);
+    changeElement(newStyledElem);
   };
   const onChangeFontWeightHandler = (eo) => {
     let newStyledElem = {
-      ...currentElement,
+      ...elem,
       style: {
-        ...currentElement.style,
+        ...elem.style,
         container: {
-          ...currentElement.style.container,
+          ...elem.style.container,
           fontWeight: eo.target.value,
         },
       },
     };
-    currentElement !== container
-      ? changeElement(newStyledElem)
-      : changeContainer(newStyledElem);
+    changeElement(newStyledElem);
+  };
+  const onChangeFontStyleHandler = (eo) => {
+    let newStyledElem = {
+      ...elem,
+      style: {
+        ...elem.style,
+        container: {
+          ...elem.style.container,
+          fontStyle: eo.target.value,
+        },
+      },
+    };
+    changeElement(newStyledElem);
   };
 
   return (
@@ -63,7 +68,7 @@ export const FontSetting = ( {elemId} ) => {
         <input
           className="form-control form-control-sm"
           list="font-sizes"
-          value={parseFloat(currentElement.style.container.fontSize)||''}
+          value={parseFloat(elem.style.container.fontSize)||''}
           type="select"
           id="input-font-size"
           onChange={onChangeFontSizeHandler}
@@ -77,9 +82,10 @@ export const FontSetting = ( {elemId} ) => {
         <input
           className="form-control form-control-sm"
           list="font-weights"
-          defaultValue="400"
+          value={parseFloat(elem.style.container.fontWeight)||'400'}
           type="select"
           id="input-font-weight"
+          onChange={onChangeFontWeightHandler}
         />
         <datalist id="font-weights">{fontWeightOptions}</datalist>
       </div>
@@ -87,7 +93,12 @@ export const FontSetting = ( {elemId} ) => {
         <label htmlFor="select-font-style" className="form-label">
           Font style
         </label>
-        <select id="select-font-style" className="form-control form-control-sm">
+        <select 
+          id="select-font-style" 
+          className="form-control form-control-sm"
+          value={elem.style.container.fontStyle || 'normal'} 
+          onChange={onChangeFontStyleHandler} 
+        >
           {fontStylesOptions}
         </select>
       </div>

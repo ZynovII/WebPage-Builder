@@ -6,7 +6,7 @@ import { PicAndText } from "./elements/PicAndText";
 import { Text } from "./elements/Text";
 import { Block } from "./elements/Block";
 import { Picture } from "./elements/Picture";
-import { ModalEdit } from "../../ModalEdit/ModalEdit";
+import { ModalEdit } from "./ModalEdit/ModalEdit";
 import { Portal } from "../../Portal/Portal";
 
 
@@ -95,7 +95,7 @@ export const NewElement = ({ el, index }) => {
       {
           isEditable && 
           <Portal>
-              <ModalEdit element={el} cbEdittingHandler={edittingHandler} />
+              <ModalEdit element={el} cbSetEditable={setEditable} />
           </Portal>
       }
     </div>

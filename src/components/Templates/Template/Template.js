@@ -19,7 +19,7 @@ export const Template = ( {template} ) => {
         addElement( {...template, name: `New ${template.name}${elementsCounter+1}`, id: newId} );
     };
     
-    const toggleOpen = () => {
+    const openHandler = () => {
         if(elementsThisTypeArr.length === 0) {
             return
         }
@@ -34,7 +34,7 @@ export const Template = ( {template} ) => {
 
     return (
         <div className='template-item'>
-            <div className='template-item__head' onClick={toggleOpen}>
+            <div className='template-item__head' onClick={openHandler}>
                 <div>
                     <div className='template-item__title'>
                         {template.name}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ColorSetting } from './ColorSetting/ColorSetting';
 import { FontSetting } from './FontSetting/FontSetting';
+import { PlaceSetting } from './PlaceSetting/PlaceSetting';
 
 import './Setting.scss';
 
@@ -8,24 +9,28 @@ export const Setting = ( {elem} ) => {
 
     const [isOpen, setIsOpen] = useState(false);
     
-    const toggleOpen = () => setIsOpen(!isOpen);
+    const openHandler = () => setIsOpen(!isOpen);
 
     let settingsBlock;
 
     
     switch (elem.type){
-        case ('container') : 
+        case 'container' : 
                 settingsBlock = (
-                    <>
-                        <ColorSetting elemId={elem.id} />
-                    </>
+                    <ColorSetting elem={elem} />
                 );
-                break
+                break;
+        case 'picture': 
+                settingsBlock = (
+                    <ColorSetting elem={elem} />
+                );
+                break;
         default:
             settingsBlock = (
                 <>
-                    <ColorSetting elemId={elem.id} />
-                    <FontSetting elemId={elem.id} />
+                    <ColorSetting elem={elem} />
+                    <FontSetting elem={elem} />
+                    <PlaceSetting elem={elem} />
                 </>
             );        
     }
@@ -34,7 +39,7 @@ export const Setting = ( {elem} ) => {
         <div className='setting'>
             <div 
                 className='setting__head'
-                onClick={toggleOpen}
+                onClick={openHandler}
             >
                 <div className='setting__title'>{elem.name}</div>
                 <span className={ !isOpen ? 'setting__toggle' : 'setting__toggle_opened' }>
