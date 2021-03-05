@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ElementContext } from '../../context/new-elements/elementContext';
 import { Setting } from './Setting/Setting';
 
@@ -7,15 +8,7 @@ import './Settings.scss';
 export const Settings = () => {
     
     const {container, elements} = useContext(ElementContext);
-
-    let elementsSettings = elements.map( el => {
-        return(
-            <Setting 
-                key={el.id}
-                elem={el}
-            />
-        )
-    })
+    const nodeRef = useRef(null);
 
     return (
         <div className='field-settings'>
@@ -23,7 +16,20 @@ export const Settings = () => {
                 <div>settings</div>
             </div>
             <Setting elem={container} />
-            {elementsSettings}
+            <TransitionGroup>
+                { 
+                    elements.map( el => (
+                        <CSSTransition 
+                            key={el.id}
+                            nodeRef={nodeRef}
+                            classNames='setting'
+                            timeout={{ enter: 500, exit: 500}}    
+                        >
+                            <Setting elem={el}/>
+                        </CSSTransition>
+                    )) 
+                }
+            </TransitionGroup>
         </div>
     )
 }

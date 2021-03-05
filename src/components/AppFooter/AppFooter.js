@@ -27,6 +27,7 @@ export const AppFooter = ( {isOpen, cbIsOpen} ) => {
             >
                 Clear
             </button>
+            <button className='btn btn-success btn-lg' disabled>Save</button>
         </div>
     )
 }

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ElementContext } from '../../../context/new-elements/elementContext';
 import { ElementTemp } from '../ElementTemp/ElementTemp';
 
@@ -7,9 +8,16 @@ import './Template.scss';
 export const Template = ( {template} ) => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [height, setHeight] = useState(0);
     
     const {elements, addElement} = useContext(ElementContext);
-
+    
+    const nodeRef = useCallback( node => {
+        if(node !== null) {
+            setHeight(isOpen ? node.scrollHeight : 0)
+        }
+    }, [isOpen]);
+    
     const elementsThisTypeArr = elements.filter( el => el.type === template.type );
 
     const handlerAdd = (event) => {
@@ -26,11 +34,7 @@ export const Template = ( {template} ) => {
         setIsOpen(!isOpen);
     };
 
-    let elementsThisType = elementsThisTypeArr.map( el => (
-        <ElementTemp  key={el.id} elem={el} />
-    ) );
-
-    let countOfNewElements = <span> ({elementsThisTypeArr.length}) </span>
+    let countOfNewElements = <span> ({elementsThisTypeArr.length}) </span>;
 
     return (
         <div className='template-item'>
@@ -52,10 +56,21 @@ export const Template = ( {template} ) => {
                     &#10010;
                 </button>
             </div>
-            {
-                elementsThisTypeArr.length > 0 && isOpen &&
-                <div className='template-item__children'>{elementsThisType}</div>
-            }
+                <div className='template-item__children' ref={nodeRef} style={{height: height+'px'}}>  
+            <TransitionGroup component='div'>  
+                    {
+                        elementsThisTypeArr.map( el => (
+                            <CSSTransition
+                                key={el.id}
+                                classNames='template-item__child'
+                                timeout={1000}
+                            >
+                                <ElementTemp elem={el} />
+                            </CSSTransition>
+                        ))
+                    }
+            </TransitionGroup>
+                </div>
         </div>
     );
 };
