@@ -4,12 +4,12 @@ import { NewElement } from './NewElement';
 
 import './NewPage.scss';
 
-export const NewPage = () => {
+export const NewPage = ({mode}) => {
 
     const {container, elements, selectElement} = useContext(ElementContext);
     
     const elementsDOM = elements.map( (el, i) => (
-        <NewElement el={el} index={i} key={el.id} />
+        <NewElement mode={mode} el={el} index={i} key={el.id} />
     ));
     
     const unSelectHandler = ( eo, id ) => {
@@ -20,7 +20,7 @@ export const NewPage = () => {
     return (
         <container.dom.container 
             style={container.style.container}
-            onClick={ (eo) => unSelectHandler(eo, null)}
+            onClick={mode==='editing' ? (eo) => unSelectHandler(eo, null) : null}
         >
             {elementsDOM}
         </container.dom.container>

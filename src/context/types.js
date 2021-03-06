@@ -5,3 +5,6 @@ export const DELITE_ALL = 'DELITE_ALL';
 export const CHANGE_CONTAINER = 'CHANGE_CONTAINER';
 export const SELECT_ELEMENT = 'SELECT_ELEMENT';
 export const CHANGE_ORDER = 'CHANGE_ORDER';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';

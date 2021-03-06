@@ -13,13 +13,12 @@ export const Setting = ( {elem} ) => {
     const nodeRef = useRef(null);
 
     useEffect( () => {
-        setHeight(nodeRef.current.scrollHeight);
-    }, [])
+        setHeight(isOpen ? nodeRef.current.scrollHeight+15 : 0);
+    }, [isOpen])
 
     const openHandler = () => {
         setIsOpen(!isOpen);
     }
-    let currHeight = isOpen ? height : 0;
 
     let settingsBlock;
 
@@ -58,9 +57,9 @@ export const Setting = ( {elem} ) => {
                 </span>
             </div>
             <div 
-                className={isOpen ? 'setting__options' : 'setting__options_active'} 
+                className={isOpen ? 'setting__options' : 'setting__options_closed'} 
                 ref={nodeRef} 
-                style={{height: currHeight+'px'}}
+                style={{height: height+'px'}}
             >
                 {settingsBlock}
             </div>

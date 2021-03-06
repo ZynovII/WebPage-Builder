@@ -10,7 +10,7 @@ import { ModalEdit } from "./ModalEdit/ModalEdit";
 import { Portal } from "../../Portal/Portal";
 
 
-export const NewElement = ({ el, index }) => {
+export const NewElement = ({ el, index, mode }) => {
   const {
     elements,
     changeOrder,
@@ -72,32 +72,40 @@ export const NewElement = ({ el, index }) => {
     setEditable(!isEditable);
   }
 
-  return (
-    <div
-      key={el.id}
-      className={
-        selectedElementID !== el.id ? "new-element" : "new-element_selected"
-      }
-      onClick={(eo) => selectHandler(eo, el.id)}
-    >
-      <span onClick={(eo)=>selectHandler(eo, null)} >
-        {
-            selectedElementID === el.id && 
-            <>
-                <button onClick={edittingHandler}>{isEditable ? 'Ok' : 'Edit'}</button>
-                <button onClick={upHandler}>Move Up</button>
-                <button onClick={downHandler}>Move Down</button>
-            </>
+  if(mode==='editing') {
+    return (
+      <div
+        key={el.id}
+        className={
+          selectedElementID !== el.id ? "new-element" : "new-element_selected"
         }
-        {el.name}
-      </span>
+        onClick={(eo) => selectHandler(eo, el.id)}
+      >
+        <span onClick={(eo)=>selectHandler(eo, null)} >
+          {
+              selectedElementID === el.id && 
+              <>
+                  <button onClick={edittingHandler}>{isEditable ? 'Ok' : 'Edit'}</button>
+                  <button onClick={upHandler}>Move Up</button>
+                  <button onClick={downHandler}>Move Down</button>
+              </>
+          }
+          {el.name}
+        </span>
+        {domElement}
+        {
+            isEditable && 
+            <Portal>
+                <ModalEdit element={el} cbSetEditable={setEditable} />
+            </Portal>
+        }
+      </div>
+    );
+  }
+
+  return (
+    <div>
       {domElement}
-      {
-          isEditable && 
-          <Portal>
-              <ModalEdit element={el} cbSetEditable={setEditable} />
-          </Portal>
-      }
     </div>
   );
 };

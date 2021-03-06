@@ -19,17 +19,17 @@
         }
     }
     &-enter {
-        transition: 1s;
-        transform: scaleY(0) translateY(50%);
+        transition: .3s;
+        opacity: 0;
         &-active {
-            transform: scaleY(1) translateY(0);
+            opacity: 1;
         }
     }
     &-exit {
-        transition: 1s;
-        transform: scaleY(1) translateY(0);
+        transition: .3s;
+        opacity: 1;
         &-active {
-            transform: scaleY(0) translateY(-50%);
+            opacity: 0;
         }
     }
 }
