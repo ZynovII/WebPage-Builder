@@ -20,7 +20,7 @@ export const STYLE_PICTURE = {
 };
 export const STYLE_DIV = {
   minHeight: "100px",
-  backgroundColor: "grey",
+  backgroundColor: "#cccccc",
 };
 export const STYLE_HEADER = {
   minHeight: "100px",
@@ -36,7 +36,7 @@ export const STYLE_HEADER = {
 };
 export const STYLE_FOOTER = {
   minHeight: "100px",
-  backgroundColor: "lightblue",
+  backgroundColor: "#9898ff",
   color: '#000000',
   textAlign: 'center',
   fontSize: "40px",

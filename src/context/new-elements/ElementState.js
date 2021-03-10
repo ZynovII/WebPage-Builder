@@ -4,24 +4,26 @@ import {
   ADD_ELEMENT,
   CHANGE_CONTAINER,
   CHANGE_ELEMENT,
+  CHANGE_NAME,
   CHANGE_ORDER,
   DELITE_ALL,
   DELITE_ELEMENT,
+  LOAD,
   SELECT_ELEMENT,
 } from "../types";
 import { ElementContext } from "./elementContext";
 import { elementReducer } from "./elementReducer";
 
-const initialState = localStorage.getItem("newPage")
+
+export const ElementState = ({ children }) => {
+  const initialState = localStorage.getItem("newPage")
   ? JSON.parse(localStorage.getItem("newPage"))
   : {
       container: standartContainer,
       elements: [],
       selectedElementID: null,
+      name: 'My new webpage',
     };
-
-
-export const ElementState = ({ children }) => {
   const [state, dispatch] = useReducer(elementReducer, initialState);
 
   useEffect( () => {
@@ -77,6 +79,20 @@ export const ElementState = ({ children }) => {
     });
   };
 
+  const changeName = ( name ) => {
+    dispatch({
+      type: CHANGE_NAME,
+      payload: name
+    });
+  };
+
+  const loadPage = (page) => {
+    dispatch({
+      type: LOAD,
+      payload: page
+    })
+  }
+
   return (
     <ElementContext.Provider
       value={{
@@ -87,9 +103,12 @@ export const ElementState = ({ children }) => {
         changeContainer,
         selectElement,
         deliteAllElements,
+        changeName,
+        loadPage,
         elements: state.elements,
         container: state.container,
         selectedElementID: state.selectedElementID,
+        name: state.name
       }}
     >
       {children}

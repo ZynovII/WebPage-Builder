@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { AuthContext } from '../../../context/auth/authContext';
 
 import './LoginBtn.scss';
 
 export function LoginBtn() {
     
+    const { user } = useContext(AuthContext);
+
     let history = useHistory();
 
     const clickHandler = () => {
-        history.push('/Login');
+        if(!user) {
+            history.push('/Login');
+        } else {
+            history.push('/Profile');
+        }
     }
 
     return (
         <input 
             className='login-btn bg-indigo' 
             type='button' 
-            value='Login'
-            onClick={clickHandler}    
+            value={ user ? 'Profile' : 'Login' }
+            onClick={clickHandler}  
         />
     )
 } 
