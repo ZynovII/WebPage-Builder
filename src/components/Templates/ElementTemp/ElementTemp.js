@@ -26,7 +26,7 @@ export const ElementTemp = ( {elem} ) => {
             <button className='btn btn-outline-danger btn-sm' 
                 onClick={ handlerDelete }
             >
-                delite
+                delete
             </button>
         </div>
     )

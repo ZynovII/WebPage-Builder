@@ -6,7 +6,7 @@ import { PicAndText } from "./elements/PicAndText";
 import { Text } from "./elements/Text";
 import { Block } from "./elements/Block";
 import { Picture } from "./elements/Picture";
-import { ModalEdit } from "./ModalEdit/ModalEdit";
+import { ModalEdit } from "../../Modal/ModalEdit/ModalEdit";
 import { Portal } from "../../Portal/Portal";
 
 
@@ -16,6 +16,7 @@ export const NewElement = ({ el, index, mode }) => {
     changeOrder,
     selectedElementID,
     selectElement,
+    deleteElement,
   } = useContext(ElementContext);
 
   const [isEditable, setEditable] = useState(false);
@@ -67,6 +68,11 @@ export const NewElement = ({ el, index, mode }) => {
     selectElement(id);
   };
 
+  const deleteHandler = (eo, id) => {
+    eo.stopPropagation();
+    deleteElement(id)
+  }
+
   const edittingHandler = (eo) => {
     eo.stopPropagation();
     setEditable(!isEditable);
@@ -81,16 +87,17 @@ export const NewElement = ({ el, index, mode }) => {
         }
         onClick={(eo) => selectHandler(eo, el.id)}
       >
-        <span onClick={(eo)=>selectHandler(eo, null)} >
+        <span className='editig-title' onClick={(eo)=>selectHandler(eo, null)} >
           {
               selectedElementID === el.id && 
               <>
                   <button onClick={edittingHandler}>{isEditable ? 'Ok' : 'Edit'}</button>
                   <button onClick={upHandler}>Move Up</button>
                   <button onClick={downHandler}>Move Down</button>
+                  <button onClick={eo=>deleteHandler(eo, el.id)}>Delete</button>
               </>
           }
-          {el.name}
+          {el.name}{isEditable && <small>&times;</small>}
         </span>
         {domElement}
         {

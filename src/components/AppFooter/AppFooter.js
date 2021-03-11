@@ -9,11 +9,11 @@ import { ModalSave } from '../Modal/ModalSave';
 export const AppFooter = ( {isOpen, cbIsOpen} ) => {
     
     const [modal, setModal] = useState(false);
-    const { deliteAllElements } = useContext(ElementContext);
+    const { deleteAllElements } = useContext(ElementContext);
     const {user} = useContext(AuthContext);
     const history = useHistory();
 
-    const deliteHandler = () => deliteAllElements();
+    const deliteHandler = () => deleteAllElements();
     const settingHendler = () => cbIsOpen(!isOpen);
     const toViewHandler = () => history.push('/Viewing');
     const toggleModal = () => setModal(!modal);
