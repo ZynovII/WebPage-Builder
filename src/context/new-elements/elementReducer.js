@@ -4,8 +4,8 @@ import {
   CHANGE_ELEMENT,
   CHANGE_NAME,
   CHANGE_ORDER,
-  DELITE_ALL,
-  DELITE_ELEMENT,
+  DELETE_ALL,
+  DELETE_ELEMENT,
   LOAD,
   SELECT_ELEMENT,
 } from "../types";
@@ -21,12 +21,12 @@ export const elementReducer = (state, action) => {
           el.id === action.payload.id ? action.payload : el
         ),
       };
-    case DELITE_ELEMENT:
+    case DELETE_ELEMENT:
       return {
         ...state,
         elements: state.elements.filter((el) => el.id !== action.id),
       };
-    case DELITE_ALL:
+    case DELETE_ALL:
       return { ...state, elements: [], container: action.payload };
     case SELECT_ELEMENT:
       return { ...state, selectedElementID: action.id };

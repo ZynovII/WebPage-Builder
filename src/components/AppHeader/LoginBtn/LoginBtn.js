@@ -4,14 +4,17 @@ import { AuthContext } from '../../../context/auth/authContext';
 
 import './LoginBtn.scss';
 
-export function LoginBtn() {
+export function LoginBtn({cbClose}) {
     
     const { user } = useContext(AuthContext);
 
     let history = useHistory();
 
     const clickHandler = () => {
-        if(!user) {
+        if (cbClose) {
+            cbClose();
+        }
+        if (!user) {
             history.push('/Login');
         } else {
             history.push('/Profile');

@@ -13,6 +13,11 @@ export const AppPage = () => {
 
   const { loading } = useContext(AuthContext);
 
+  
+  if(loading) {
+    return <Loader />
+  }
+
   return (
     <>
       <div className="app-page">
@@ -22,7 +27,6 @@ export const AppPage = () => {
           <Templates />
         </div>
         <AppFooter isOpen={isSettingsOpen} cbIsOpen={setIsSettingsOpen} />
-        {loading && <Loader />}
       </div>
       <div className="small-display auth-page container mt-5">
           <h2>

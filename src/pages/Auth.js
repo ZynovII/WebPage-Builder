@@ -13,6 +13,9 @@ export const Auth = () => {
         login();
         history.push('/Profile')
     };
+    if(loading){
+        return <Loader />
+    }
     if(user) {
         return (
             <div className='auth-page container mt-4'>
@@ -32,8 +35,6 @@ export const Auth = () => {
             >
                 Login
             </button>
-            {loading && 
-            <Loader />}
         </div>
     )
 }

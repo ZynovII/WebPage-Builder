@@ -1,7 +1,7 @@
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const CHANGE_ELEMENT = 'CHANGE_ELEMENT';
-export const DELITE_ELEMENT = 'DELITE_ELEMENT';
-export const DELITE_ALL = 'DELITE_ALL';
+export const DELETE_ELEMENT = 'DELETE_ELEMENT';
+export const DELETE_ALL = 'DELETE_ALL';
 export const CHANGE_CONTAINER = 'CHANGE_CONTAINER';
 export const SELECT_ELEMENT = 'SELECT_ELEMENT';
 export const CHANGE_ORDER = 'CHANGE_ORDER';

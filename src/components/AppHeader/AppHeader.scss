@@ -10,7 +10,7 @@
         display: none;
     }
     & div:last-child {
-        transition: .5s;
+        transition: .3s;
     }
     .nav-toggle {
         height: 0;
@@ -41,6 +41,7 @@
         .nav-toggle-enter {
             padding-top: 5px;
             height: 0;
+            transition: ease-in;
             &-active {
                 padding-top: 5px;
                 overflow: hidden;
@@ -55,6 +56,7 @@
         .nav-toggle-exit {
             overflow: hidden;
             height: 117px;
+            transition: ease-out;
             &-active {
                 overflow: hidden;
                 height: 0;

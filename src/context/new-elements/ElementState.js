@@ -6,7 +6,7 @@ import {
   CHANGE_ELEMENT,
   CHANGE_NAME,
   CHANGE_ORDER,
-  DELITE_ALL,
+  DELETE_ALL,
   DELITE_ELEMENT,
   LOAD,
   SELECT_ELEMENT,
@@ -65,9 +65,9 @@ export const ElementState = ({ children }) => {
     });
   };
 
-  const deliteAllElements = () => {
+  const deleteAllElements = () => {
     dispatch({
-      type: DELITE_ALL,
+      type: DELETE_ALL,
       payload: standartContainer
     });
   };
@@ -102,7 +102,7 @@ export const ElementState = ({ children }) => {
         changeOrder,
         changeContainer,
         selectElement,
-        deliteAllElements,
+        deleteAllElements,
         changeName,
         loadPage,
         elements: state.elements,

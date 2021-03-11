@@ -4,7 +4,7 @@ import { LoginBtn } from "../LoginBtn/LoginBtn";
 
 import "./Navbar.scss";
 
-export const Navbar = ({ smallDisplayMode }) => {
+export const Navbar = ({ smallDisplayMode, cbClose }) => {
   return (
     <nav className="navbar navbar-dark navbar-expand p-0 px-2 d-flex justify-content-between">
       {!smallDisplayMode && (
@@ -14,7 +14,10 @@ export const Navbar = ({ smallDisplayMode }) => {
           </NavLink>
         </div>
       )}
-      <ul className={smallDisplayMode ? 'nav flex-column' : "navbar-nav"}>
+      <ul 
+        className={smallDisplayMode ? 'nav flex-column' : "navbar-nav"}
+        onClick={cbClose}
+      >
         <li className="nav-item" href="#">
           <NavLink className="nav-link text-white" to="/" exact>
             About
@@ -32,7 +35,7 @@ export const Navbar = ({ smallDisplayMode }) => {
         </li>
       </ul>
       {smallDisplayMode && 
-      <div className='p-3'><LoginBtn /></div>}
+      <div className='p-3'><LoginBtn cbClose={cbClose} /></div>}
     </nav>
   );
 };

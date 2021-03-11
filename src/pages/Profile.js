@@ -42,6 +42,9 @@ export const Profile = () => {
 
   const pagesKeys = pages && Object.keys(pages);
 
+  if(loading) {
+    return  <Loader />
+  }
   if (!user) {
     return (
       <div className="auth-page container mt-4">
@@ -53,7 +56,6 @@ export const Profile = () => {
 
   return (
     <div className="auth-page container mt-4">
-    {loading ? <Loader /> : null}
       <h3 className="mb-5">{user}</h3>
       <ul className="list-group profile-list">
         {pages &&
