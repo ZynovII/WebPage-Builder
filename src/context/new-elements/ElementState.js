@@ -7,7 +7,7 @@ import {
   CHANGE_NAME,
   CHANGE_ORDER,
   DELETE_ALL,
-  DELITE_ELEMENT,
+  DELETE_ELEMENT,
   LOAD,
   SELECT_ELEMENT,
 } from "../types";
@@ -44,9 +44,9 @@ export const ElementState = ({ children }) => {
     });
   };
 
-  const deliteElement = (elId) => {
+  const deleteElement = (elId) => {
     dispatch({
-      type: DELITE_ELEMENT,
+      type: DELETE_ELEMENT,
       id: elId,
     });
   };
@@ -98,7 +98,7 @@ export const ElementState = ({ children }) => {
       value={{
         addElement,
         changeElement,
-        deliteElement,
+        deleteElement,
         changeOrder,
         changeContainer,
         selectElement,

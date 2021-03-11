@@ -22,7 +22,7 @@ export const Profile = () => {
     history.push("/Login");
   };
 
-  const deliteHandler = (key, eo) => {
+  const deleteHandler = (key, eo) => {
     eo.stopPropagation();
     database.ref(`users/${user}/${key}`).remove();
   };
@@ -69,7 +69,7 @@ export const Profile = () => {
               <button
                 className="btn btn-outline-danger btn-sm"
                 title="delite page"
-                onClick={(eo) => deliteHandler(key, eo)}
+                onClick={(eo) => deleteHandler(key, eo)}
               >
                 &times;
               </button>

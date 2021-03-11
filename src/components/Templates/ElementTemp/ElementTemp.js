@@ -5,10 +5,10 @@ import './ElementTemp.scss';
 
 export const ElementTemp = ( {elem} ) => {
 
-    const { deliteElement, changeElement } = useContext(ElementContext);
+    const { deleteElement, changeElement } = useContext(ElementContext);
     
-    const handlerDelite = () => {
-        deliteElement(elem.id);
+    const handlerDelete = () => {
+        deleteElement(elem.id);
     };
 
     const changeNameHandler = (e) => {
@@ -24,7 +24,7 @@ export const ElementTemp = ( {elem} ) => {
                 {elem.name}
             </span>
             <button className='btn btn-outline-danger btn-sm' 
-                onClick={ handlerDelite }
+                onClick={ handlerDelete }
             >
                 delite
             </button>
