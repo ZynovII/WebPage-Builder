@@ -18,10 +18,12 @@ export const Templates = () => {
     return (
         <div className='field-templates'>
             <div>
-                <div className='field-templates__tabs'>
+                <div className='field-templates__head'>
                     <div>templates</div>
                 </div>
-                {templates}
+                <div className='field-templates__body'>
+                    {templates}
+                </div>
             </div>
         </div>
     )

@@ -8,3 +8,14 @@
         flex: 16;
     }
 }
+.small-display {
+    display: none;
+}
+@media screen and (max-width: 605px) {
+    .app-page {
+        display: none;
+    }
+    .small-display {
+        display: block;
+    }
+} 

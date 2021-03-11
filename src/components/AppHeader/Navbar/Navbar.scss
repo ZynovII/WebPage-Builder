@@ -1,0 +1,9 @@
+@media screen and (max-width: 605px) {
+    .navbar-nav {
+        display: none;
+    }
+    .nav-link.active {
+        outline: 1px solid white;
+        border-radius: 3px;
+    }
+} 

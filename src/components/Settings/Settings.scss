@@ -4,7 +4,16 @@
     border: 1px solid #8540f5;
     background-color: white;
     border-radius: 5px;
-    max-height: calc(100vh - 115px);
-    overflow-y: auto;
+    overflow: hidden;
     box-shadow: inset 0px 0px 3px rgba($color: #000000, $alpha: .4);
+    &__head {
+        color: white;
+        background: #ae7cff;
+        text-align: center;
+        font-size: .8em;
+    }
+    &__body {
+        max-height: calc(100vh - 136px);
+        overflow-y: auto;
+    }
 }

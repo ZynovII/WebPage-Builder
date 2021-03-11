@@ -1,3 +1,69 @@
 .app-header{
     background: linear-gradient(to bottom, #8540f5, #ae7cff);
+    &_container {
+        padding: 0 15px;
+    }
+    .toggle {
+        display: flex;
+    }
+    & .navbar-toggle {
+        display: none;
+    }
+    & div:last-child {
+        transition: .5s;
+    }
+    .nav-toggle {
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+
+@media screen and (max-width: 605px) {
+    .app-header {
+        font-size: .9rem;
+        &_container {
+            padding: 0 3px;
+        }
+        .toggle {
+            display: none;
+        }
+        & .navbar-toggle {
+            display: block;
+        }
+        .login-btn {
+            padding: 10px;
+        }
+        .nav-toggle {
+            overflow: hidden;
+            height: 0;
+        }
+        .nav-toggle-enter {
+            padding-top: 5px;
+            height: 0;
+            &-active {
+                padding-top: 5px;
+                overflow: hidden;
+                height: 117px;
+            }
+            &-done {
+                padding-top: 5px;
+                overflow: inherit;
+                height: 117px;
+            }
+        }
+        .nav-toggle-exit {
+            overflow: hidden;
+            height: 117px;
+            &-active {
+                overflow: hidden;
+                height: 0;
+            }
+            &-done {
+                padding-top: 0;
+                overflow: hidden;
+                height: 0;
+            }
+        }
+    }
 }
