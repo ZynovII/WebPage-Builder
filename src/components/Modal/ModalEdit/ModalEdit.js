@@ -44,7 +44,7 @@ export const ModalEdit = ({ element, cbSetEditable }) => {
     <div className="modal-element_edit">
       <div className="field-templates__head">Editting</div>
       <div className="field-templates__body">
-        {textValue && (
+        {typeof textValue === 'string' && (
           <div className="modal-element__text">
             <label htmlFor="edit-text">Your text</label>
             <textarea
@@ -57,7 +57,7 @@ export const ModalEdit = ({ element, cbSetEditable }) => {
             ></textarea>
           </div>
         )}
-        {srcValue && (
+        {typeof(srcValue) === 'string' && (
           <div className="modal-element__src">
             <label htmlFor="edit-src">Link to your image</label>
             <input
