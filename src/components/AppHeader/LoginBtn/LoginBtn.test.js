@@ -2,7 +2,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { LoginBtn } from "./LoginBtn";
 import { AuthContext } from "../../../context/auth/authContext";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 describe("LoginBtn", () => {
   test("text in button with user", () => {
